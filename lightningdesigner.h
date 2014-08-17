@@ -24,6 +24,8 @@ public:
         quint8 GREEN;
         quint8 BLUE;
     };
+    using STATE = QList<LED>;
+    using PATTERN = QList<STATE>;
 
 private:
     Ui::LightningDesigner *ui;

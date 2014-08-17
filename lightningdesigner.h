@@ -2,6 +2,8 @@
 #define LIGHTNINGDESIGNER_H
 
 #include <QMainWindow>
+#include <QList>
+#include <QPushButton>
 
 namespace Ui {
 class LightningDesigner;
@@ -15,8 +17,18 @@ public:
     explicit LightningDesigner(QWidget *parent = 0);
     ~LightningDesigner();
 
+    struct LED
+    {
+        QPushButton* button;
+        quint8 RED;
+        quint8 GREEN;
+        quint8 BLUE;
+    };
+
 private:
     Ui::LightningDesigner *ui;
+
+
 };
 
 #endif // LIGHTNINGDESIGNER_H

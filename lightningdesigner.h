@@ -24,13 +24,13 @@ public:
         quint8 GREEN;
         quint8 BLUE;
     };
-    using STATE = QList<LED>;
-    using PATTERN = QList<STATE>;
+    typedef QList<LED> STATE;
+    typedef QList<STATE> PATTERN;
 
 private:
     Ui::LightningDesigner *ui;
 
-
+    PATTERN m_Pattern;
 };
 
 #endif // LIGHTNINGDESIGNER_H

@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QList>
 #include <QPushButton>
+#include <QColorDialog>
+#include <QColor>
 
 namespace Ui {
 class LightningDesigner;
@@ -17,20 +19,25 @@ public:
     explicit LightningDesigner(QWidget *parent = 0);
     ~LightningDesigner();
 
-    struct LED
+    typedef struct
     {
         QPushButton* button;
         quint8 RED;
         quint8 GREEN;
         quint8 BLUE;
-    };
-    typedef QList<LED> STATE;
-    typedef QList<STATE> PATTERN;
+    } LED_t;
+    typedef QList<LED_t *> FRAME_t;
+    typedef QList<FRAME_t *> PATTERN_t;
+
+public slots:
+    void changeColor();
 
 private:
-    Ui::LightningDesigner *ui;
+    QString makeStylesheet(quint8 RED, quint8 GREEN, quint8 BLUE);
+    LED_t *addLED(QLayout *layout,quint8 RED=0, quint8 GREEN=0, quint8 BLUE=0);
 
-    PATTERN m_Pattern;
+    Ui::LightningDesigner *ui;
+    PATTERN_t *m_Pattern;
 };
 
 #endif // LIGHTNINGDESIGNER_H
